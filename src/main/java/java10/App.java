@@ -16,7 +16,8 @@ public class App
         StudentService studentService = new StudentServiceImpl();
         //studentService.createStudent();
         //studentService.saveStudent(new Student());
-        System.out.println(studentService.getStudentById(3L));
+        //System.out.println(studentService.getStudentById(3L));
+        System.out.println(studentService.getAllStudents());
     }
 }
 

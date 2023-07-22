@@ -5,6 +5,7 @@ import java10.dao.StudentDao;
 import java10.model.Student;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDaoImpl implements StudentDao {
@@ -63,7 +64,19 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public List<Student> getAllStudents() {
-        return null;
+        List<Student> studentList = new ArrayList<>();
+        try(Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery("select * from students");
+            while (resultSet.next()){
+                studentList.add(new Student(resultSet.getLong("id"),
+                                            resultSet.getString("first_name"),
+                                            resultSet.getString("last_name"),
+                                            resultSet.getString("email")));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return studentList;
     }
 
     @Override
