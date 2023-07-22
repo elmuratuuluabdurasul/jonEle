@@ -20,6 +20,7 @@ public class App
         //System.out.println(studentService.getAllStudents());
         //studentService.updateStudent(1L, new Student("Aijamal","Basytova","ajash@gmail.com"));
         //studentService.deleteStudentById(3L);
+        studentService.deleteAllStudents();
     }
 }
 

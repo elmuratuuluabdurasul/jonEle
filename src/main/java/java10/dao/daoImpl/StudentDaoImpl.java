@@ -110,6 +110,12 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void deleteAllStudents() {
-
+        String sql = "delete from students";
+        try(Statement statement = connection.createStatement()){
+            statement.executeUpdate(sql);
+            System.out.println("All students deleted...");
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

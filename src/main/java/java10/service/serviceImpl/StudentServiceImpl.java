@@ -42,7 +42,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void deleteAllStudents() {
-
+        studentDao.deleteAllStudents();
     }
 }
 
