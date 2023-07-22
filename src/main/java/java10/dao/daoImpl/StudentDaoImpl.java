@@ -97,6 +97,14 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void deleteStudentById(Long id) {
+        String sql = "delete from students where id = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setLong(1,id);
+            preparedStatement.executeUpdate();
+            System.out.println("student with id: " + id + " deleted");
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
 
     }
 

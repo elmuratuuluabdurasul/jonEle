@@ -37,7 +37,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void deleteStudentById(Long id) {
-
+        studentDao.deleteStudentById(id);
     }
 
     @Override
