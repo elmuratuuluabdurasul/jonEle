@@ -81,6 +81,17 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void updateStudent(Long id, Student newStudent) {
+        String sql = "update students set first_name = ?, last_name = ?, email = ? where id = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+                preparedStatement.setString(1,newStudent.getFirstName());
+                preparedStatement.setString(2,newStudent.getLastName());
+                preparedStatement.setString(3,newStudent.getEmail());
+                preparedStatement.setLong(4,id);
+                preparedStatement.executeUpdate();
+                System.out.println("student with id: " + id + "updated");
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
 
     }
 

@@ -32,7 +32,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void updateStudent(Long id, Student newStudent) {
-
+        studentDao.updateStudent(id,newStudent);
     }
 
     @Override
